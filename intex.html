@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Football Match Signup</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f0f0f0; }
+    h1 { color: #333; }
+    form, ul { margin-top: 20px; }
+    input[type="text"] { padding: 10px; width: 300px; }
+    button { padding: 10px 20px; margin-left: 10px; }
+    li { margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Football Match Signup</h1>
+  <form id="signupForm">
+    <input type="text" id="playerName" placeholder="Enter your name" required />
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <h2>Players:</h2>
+  <ul id="playerList"></ul>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const list = document.getElementById("playerList");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("playerName").value.trim();
+      if (name !== "") {
+        const li = document.createElement("li");
+        li.textContent = name;
+        list.appendChild(li);
+        document.getElementById("playerName").value = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
